@@ -5,10 +5,11 @@ import drawStaff from './components/drawStaff';
 
 const canvas = <HTMLCanvasElement> createNode(
   'canvas',
+  null,
   {
-    width: '100%',
-    height: '100%',
-  },
+    width: '1000px',
+    height: '1000px',
+  }
 );
 
 drawStaff(canvas);
