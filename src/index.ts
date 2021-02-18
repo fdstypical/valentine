@@ -9,17 +9,17 @@ const height: number = window.innerHeight;
 const canvas = <HTMLCanvasElement> createNode(
   'canvas',
   {
-    background: '#fcb6b6'
+    background: '#fcb6b6',
   },
   {
     width: `${width}px`,
     height: `${height}px`,
-  }
+  },
 );
-
-drawStaff(canvas);
 
 render(
   canvas,
-  'root'
+  'root',
 );
+
+drawStaff(canvas);

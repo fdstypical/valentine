@@ -12,7 +12,9 @@
     "quotes": "warn",
     "import/no-unresolved": "off",
     "lines-between-class-members": "off",
-    "@typescript-eslint/no-inferrable-types": "off"
+    "@typescript-eslint/no-inferrable-types": "off",
+    "import/extensions": ["off"],
+    "no-param-reassign": "off"
   },
   "parserOptions": {
     "project": "tsconfig.json",

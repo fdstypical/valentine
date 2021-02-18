@@ -6,17 +6,17 @@ export default (elem: string, styles?: IDictionary<string> | null, attrs?: IDict
   let element: HTMLElement = document.createElement(elem);
   const styleStr: string = styles ? serializeStyle(styles) : '';
 
-  if(attrs) {
+  if (attrs) {
     element = serializeAttr(
       element,
       {
         ...attrs,
         style: styleStr,
-      }
-    )
+      },
+    );
   } else {
-    element = serializeAttr(element, {style: styleStr});
+    element = serializeAttr(element, { style: styleStr });
   }
 
   return element;
-}
+};

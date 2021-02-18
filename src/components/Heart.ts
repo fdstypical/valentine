@@ -1,4 +1,4 @@
-import IHeart from "../interfaces/IHeart";
+import { IHeart, IHeartOptions } from '../interfaces/IHeart';
 
 class Heart implements IHeart {
   ctx: CanvasRenderingContext2D;
@@ -8,7 +8,8 @@ class Heart implements IHeart {
   private y: number;
   topCurveHeight: number;
   bottomCurveHeight: number;
-  color: string = "#000";
+  color: string = '#000';
+  options: IHeartOptions;
 
   constructor(
     ctx: CanvasRenderingContext2D,
@@ -16,7 +17,8 @@ class Heart implements IHeart {
     startY: number,
     w: number,
     h: number,
-    color?: string
+    options: IHeartOptions,
+    color?: string,
   ) {
     this.ctx = ctx;
     this.x = startX + w / 2;
@@ -25,6 +27,7 @@ class Heart implements IHeart {
     this.h = h;
     this.topCurveHeight = h * 0.4;
     this.bottomCurveHeight = h * 0.4;
+    this.options = options;
 
     if (color) {
       this.color = color;
@@ -44,7 +47,7 @@ class Heart implements IHeart {
       this.x - this.w / 2,
       this.y,
       this.x - this.w / 2,
-      this.y + this.topCurveHeight
+      this.y + this.topCurveHeight,
     );
 
     // bottom left curve
@@ -54,7 +57,7 @@ class Heart implements IHeart {
       this.x,
       this.y + (this.h + this.bottomCurveHeight + this.topCurveHeight) / 2,
       this.x,
-      this.y + this.h
+      this.y + this.h,
     );
 
     // bottom right curve
@@ -64,7 +67,7 @@ class Heart implements IHeart {
       this.x + this.w / 2,
       this.y + (this.h + this.topCurveHeight) / 2,
       this.x + this.w / 2,
-      this.y + this.topCurveHeight
+      this.y + this.topCurveHeight,
     );
 
     // top right curve
@@ -74,7 +77,7 @@ class Heart implements IHeart {
       this.x,
       this.y,
       this.x,
-      this.y + this.topCurveHeight
+      this.y + this.topCurveHeight,
     );
 
     this.ctx.closePath();
