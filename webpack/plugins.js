@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const htmlPluginConfig = {
   filename: 'index.html',
+  favicon: path.resolve(__dirname, '../static/favicon.ico'),
   hash: true,
 };
 

@@ -13,7 +13,7 @@ const createGenericConfig = (mode) => ({
   module: {
     rules: [
       {
-        test: /\.(png|jpe?g|svg|gif|ico)/i,
+        test: /\.(png|jpe?g|svg|gif|ico)$/i,
         use: [
           'file-loader',
           {
