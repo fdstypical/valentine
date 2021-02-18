@@ -13,7 +13,7 @@ const plugins = {
   production: [
     new HTMLWebpackPlugin({
       ...htmlPluginConfig,
-      template: path.resolve(__dirname, '../src/', 'static/template.html'),
+      template: path.resolve(__dirname, '../static/template.html'),
       minify: {
         collapseWhitespace: true
       },
@@ -26,7 +26,7 @@ const plugins = {
   development: [
     new HTMLWebpackPlugin({
       ...htmlPluginConfig,
-      template: path.resolve(__dirname, '../src/', 'static/template.html'),
+      template: path.resolve(__dirname, '../static/template.html'),
     }),
     new webpack.HotModuleReplacementPlugin(),
     new MiniCssExtractPlugin({
