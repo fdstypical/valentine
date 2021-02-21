@@ -1,4 +1,4 @@
-import { IHeart, IHeartOptions } from '../interfaces/IHeart';
+import IHeart, { IHeartOptions } from '../interfaces/IHeart';
 
 class Heart implements IHeart {
   ctx: CanvasRenderingContext2D;
