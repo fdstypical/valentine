@@ -1,6 +1,5 @@
 import Heart from './Heart';
 import IRenderer from '../interfaces/IRenderer';
-import randomizeColor from '../helpers/randomizeColor';
 
 class Renderer implements IRenderer {
   hearts: Heart[];
@@ -30,7 +29,6 @@ class Renderer implements IRenderer {
           speedY: Math.random() * 4,
           speedX: Math.random() * 4,
         },
-        randomizeColor()
       );
     });
 

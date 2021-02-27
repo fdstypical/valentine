@@ -3,8 +3,7 @@ export type DirectionX = 'right' | 'left';
 
 export default interface IHeart {
   ctx: CanvasRenderingContext2D;
-  color: string;
-
+  canvas: HTMLCanvasElement,
   draw(): void;
 }
 
