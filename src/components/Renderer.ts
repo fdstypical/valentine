@@ -27,8 +27,8 @@ class Renderer implements IRenderer {
         {
           directionY: 'up',
           directionX: Math.random() > 0.5 ? 'right' : 'left',
-          speedY: Math.random() * 10,
-          speedX: Math.random() * 5,
+          speedY: Math.random() * 4,
+          speedX: Math.random() * 4,
         },
         randomizeColor()
       );
