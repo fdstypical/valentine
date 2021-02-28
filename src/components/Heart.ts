@@ -10,8 +10,6 @@ class Heart implements IHeart {
   topCurveHeight: number;
   bottomCurveHeight: number;
   options: IHeartOptions;
-  c0: string = '#FF9298';
-  c1: string = '#E4008E';
 
   constructor(
     ctx: CanvasRenderingContext2D,
@@ -22,8 +20,6 @@ class Heart implements IHeart {
     options: IHeartOptions,
   ) {
     const { canvas } = ctx;
-    const { width, height } = canvas;
-
     this.ctx = ctx;
     this.canvas = canvas;
     this.x = startX + w / 2;
@@ -33,17 +29,6 @@ class Heart implements IHeart {
     this.topCurveHeight = h * 0.4;
     this.bottomCurveHeight = h * 0.4;
     this.options = options;
-    this.ctx.fillStyle = this.createRadialGradient(ctx, width, height, width, this.c0, this.c1);;
-  }
-
-  private createRadialGradient(ctx: CanvasRenderingContext2D, w: number, h: number, r: number, c0: string, c1: string) {
-    const gradient = ctx.createRadialGradient(
-      w / 1, h / 1, 0,
-      w / 1, h / 1, r
-    );
-    gradient.addColorStop(0, c0);
-    gradient.addColorStop(1, c1);
-    return gradient;
   }
 
   draw() {
@@ -92,10 +77,7 @@ class Heart implements IHeart {
       this.y + this.topCurveHeight,
     );
 
-    const { ctx, c0, c1 } = this;
-    const { canvas: { width, height } } = ctx;
     this.ctx.closePath();
-    // this.ctx.fillStyle = this.createRadialGradient(ctx, width, height, width, c0, c1);
     this.ctx.fill();
     this.ctx.restore();
   }

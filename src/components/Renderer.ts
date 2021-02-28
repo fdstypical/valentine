@@ -5,11 +5,15 @@ class Renderer implements IRenderer {
   hearts: Heart[];
   canvas: HTMLCanvasElement;
   ctx: CanvasRenderingContext2D;
+  metaFill: CanvasGradient;
+  c0: string = '#FF9298';
+  c1: string = '#E4008E';
 
   constructor(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D, amountHearts: number) {
     this.canvas = canvas;
     this.ctx = ctx;
     this.hearts = this.initHearts(canvas, ctx, amountHearts);
+    this.metaFill = this.createRadialGradient(ctx, canvas.width, canvas.height, canvas.width, this.c0, this.c1);
   }
 
   private initHearts(canvas: HTMLCanvasElement, ctx: CanvasRenderingContext2D, length: number): Heart[] {
@@ -35,7 +39,19 @@ class Renderer implements IRenderer {
     return hearts;
   }
 
+  private createRadialGradient(ctx: CanvasRenderingContext2D, w: number, h: number, r: number, c0: string, c1: string) {
+    const gradient = ctx.createRadialGradient(
+      w / 1, h / 1, 0,
+      w / 1, h / 1, r
+    );
+    gradient.addColorStop(0, c0);
+    gradient.addColorStop(1, c1);
+    return gradient;
+  }
+
   private renderHearts(): void {
+    this.ctx.fillStyle = this.metaFill;
+
     this.hearts.forEach((heart) => {
       heart.draw();
 
@@ -61,6 +77,15 @@ class Renderer implements IRenderer {
     window.requestAnimationFrame(() => this.renderLoop(ctx, canvas));
     ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.renderHearts();
+  }
+
+  updateGradient(c0: string, c1: string): void {
+    const { width, height } = this.canvas;
+
+    this.c0 = c0;
+    this.c1 = c1;
+
+    this.metaFill = this.createRadialGradient(this.ctx, width, height, width, this.c0, this.c1);
   }
 
   run(): void {
